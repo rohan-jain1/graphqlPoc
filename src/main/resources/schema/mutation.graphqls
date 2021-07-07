@@ -1,8 +1,8 @@
 type Mutation {
-	createStudent(createStudentRequest : CreateStudentRequest) : StudentResponse
+	createEmployee(createEmployeeRequest : CreateEmployeeRequest) : EmployeeResponse
 }
 
-input CreateStudentRequest {
+input CreateEmployeeRequest {
 	firstName : String
 	lastName : String
 	email : String

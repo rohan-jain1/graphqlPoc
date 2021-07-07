@@ -2,7 +2,7 @@ type Query {
 	firstQuery : String
 	secondQuery : String
 	fullName(sampleRequest : SampleRequest) : String
-	student(id : Long) : StudentResponse
+	employee(id : Long) : EmployeeResponse
 }
 
 input SampleRequest {
@@ -10,7 +10,7 @@ input SampleRequest {
 	lastName : String
 }
 
-type StudentResponse {
+type EmployeeResponse {
 	id : Long
 	firstName : String
 	lastName : String

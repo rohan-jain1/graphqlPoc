@@ -7,14 +7,14 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.example.entity.Address;
-import com.example.entity.Student;
+import com.example.entity.Employee;
 import com.example.repository.AddressRepository;
-import com.example.repository.StudentRepository;
+import com.example.repository.EmployeeRepository;
 import com.example.request.CreateAddressRequest;
-import com.example.request.CreateStudentRequest;
+import com.example.request.CreateEmployeeRequest;
 
 @Service
-public class StudentService {
+public class EmployeeService {
 
 	@Autowired
 	AddressRepository addressRepository;
@@ -23,40 +23,33 @@ public class StudentService {
 //	SubjectRepository subjectRepository; //todo remove
 	
 	@Autowired
-	StudentRepository studentRepository;
+	EmployeeRepository employeeRepository;
 	
-	public Student getStudentById (long id) {
-		return studentRepository.findById(id).get();
+	public Employee getEmployeeById (long id) {
+		return employeeRepository.findById(id).get();
 	}
 	
-	public Student createStudent (CreateStudentRequest createStudentRequest) {
-		Student student = new Student(createStudentRequest);
+	public Employee createEmployee (CreateEmployeeRequest createEmployeeRequest) {
+		Employee employee = new Employee(createEmployeeRequest);
 		
-//		Address address = new Address();
-//		address.setStreet(createStudentRequest.getStreet());
-//		address.setCity(createStudentRequest.getCity());
-//		
-//		address = addressRepository.save(address);
 		
-//		student.setAddresses(address);
-		
-		student = studentRepository.save(student);
+		employee = employeeRepository.save(employee);
 		
 		
 		List<Address> addressList = new ArrayList<Address>();
 		
-		if(createStudentRequest.getAddresses() != null) {
-			for(CreateAddressRequest addressReq : createStudentRequest.getAddresses()) {
+		if(createEmployeeRequest.getAddresses() != null) {
+			for(CreateAddressRequest addressReq : createEmployeeRequest.getAddresses()) {
 				Address address = new Address();
 				address.setCity(addressReq.getCity());
 				address.setStreet(addressReq.getStreet());
-				address.setStudent(student);
+				address.setEmployee(employee);
 				addressList.add(address);
 				
 			}
 		}
 		addressRepository.saveAll(addressList);
-		student.setAddresses(addressList);
+		employee.setAddresses(addressList);
 		
 //		List<Subject> subjectsList = new ArrayList<Subject>();
 //		
@@ -77,6 +70,6 @@ public class StudentService {
 //		
 //		student.setLearningSubjects(subjectsList);
 //		
-		return student;
+		return employee;
 	}
 }

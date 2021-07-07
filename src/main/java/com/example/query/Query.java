@@ -5,14 +5,14 @@ import org.springframework.stereotype.Component;
 
 import com.coxautodev.graphql.tools.GraphQLQueryResolver;
 import com.example.request.SampleRequest;
-import com.example.response.StudentResponse;
-import com.example.service.StudentService;
+import com.example.response.EmployeeResponse;
+import com.example.service.EmployeeService;
 
 @Component
 public class Query implements GraphQLQueryResolver {
 	
 	@Autowired
-	StudentService studentService;
+	EmployeeService employeeService;
 
 	public String firstQuery () {
 		return "First Query";
@@ -26,8 +26,8 @@ public class Query implements GraphQLQueryResolver {
 		return sampleRequest.getFirstName() + " " + sampleRequest.getLastName();
 	}
 	
-	public StudentResponse getStudent (long id) {
-		return new StudentResponse(studentService.getStudentById(id));
+	public EmployeeResponse getEmployee (long id) {
+		return new EmployeeResponse(employeeService.getEmployeeById(id));
 	}
 	
 }

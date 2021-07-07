@@ -8,12 +8,12 @@ import org.springframework.stereotype.Service;
 import com.coxautodev.graphql.tools.GraphQLResolver;
 import com.example.entity.Address;
 import com.example.response.AddressResponse;
-import com.example.response.StudentResponse;
+import com.example.response.EmployeeResponse;
 
 @Service
-public class StudentResponseResolver implements GraphQLResolver<StudentResponse> {
+public class EmployeeResponseResolver implements GraphQLResolver<EmployeeResponse> {
 
-//	public List<SubjectResponse> getLearningSubjects (StudentResponse studentResponse,
+//	public List<SubjectResponse> getLearningSubjects (EmployeeResponse studentResponse,
 //			SubjectNameFilter subjectNameFilter) {
 //		
 //		List<SubjectResponse> learningSubjects = new ArrayList<SubjectResponse>();
@@ -32,12 +32,12 @@ public class StudentResponseResolver implements GraphQLResolver<StudentResponse>
 //		
 //	}
 	
-	public List<AddressResponse> getAddresses(StudentResponse studentResponse) {
+	public List<AddressResponse> getAddresses(EmployeeResponse employeeResponse) {
 		
 		
 		List<AddressResponse> addresses = new ArrayList<AddressResponse>();
-		if(studentResponse.getStudent().getAddresses() != null) {
-			for(Address address: studentResponse.getStudent().getAddresses()) {
+		if(employeeResponse.getEmployee().getAddresses() != null) {
+			for(Address address: employeeResponse.getEmployee().getAddresses()) {
 				addresses.add(new AddressResponse(address));
 			}
 		}
@@ -45,7 +45,7 @@ public class StudentResponseResolver implements GraphQLResolver<StudentResponse>
 		return addresses;
 	}
 	
-	public String getFullName (StudentResponse studentResponse) {
-		return studentResponse.getFirstName() + " " + studentResponse.getLastName();
+	public String getFullName (EmployeeResponse employeeResponse) {
+		return employeeResponse.getFirstName() + " " + employeeResponse.getLastName();
 	}
 }

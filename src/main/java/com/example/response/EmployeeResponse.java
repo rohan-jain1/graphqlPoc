@@ -3,14 +3,14 @@ package com.example.response;
 import java.util.List;
 
 import com.example.entity.Address;
-import com.example.entity.Student;
+import com.example.entity.Employee;
 
 import lombok.Getter;
 import lombok.Setter;
 
 @Setter
 @Getter
-public class StudentResponse {
+public class EmployeeResponse {
 
 	private long id;
 
@@ -25,20 +25,20 @@ public class StudentResponse {
 //	private List<SubjectResponse> learningSubjects; //todo remove
 	
 	// this is for internal use. DO NOT PUT IN SCHEMA
-	private Student student;
+	private Employee employee;
 	
 	private String fullName;
 	
-	public StudentResponse (Student student) {
-		this.student = student;
-		this.id = student.getId();
-		this.firstName = student.getFirstName();
-		this.lastName = student.getLastName();
-		this.email = student.getEmail();
+	public EmployeeResponse (Employee employee) {
+		this.employee = employee;
+		this.id = employee.getId();
+		this.firstName = employee.getFirstName();
+		this.lastName = employee.getLastName();
+		this.email = employee.getEmail();
 				
-		/*if (student.getLearningSubjects() != null) {
+		/*if (employee.getLearningSubjects() != null) {
 			learningSubjects = new ArrayList<SubjectResponse>();
-			for (Subject subject: student.getLearningSubjects()) {
+			for (Subject subject: employee.getLearningSubjects()) {
 				learningSubjects.add(new SubjectResponse(subject));
 			}
 		}*/

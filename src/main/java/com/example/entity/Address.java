@@ -33,7 +33,7 @@ public class Address {
 	private String city;
 	
 	@ManyToOne
-	@JoinColumn(name = "student_id")
-	private Student student;
+	@JoinColumn(name = "employee_id")
+	private Employee employee;
 
 }

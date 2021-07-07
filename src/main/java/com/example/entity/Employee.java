@@ -12,7 +12,7 @@ import javax.persistence.OneToMany;
 import javax.persistence.OneToOne;
 import javax.persistence.Table;
 
-import com.example.request.CreateStudentRequest;
+import com.example.request.CreateEmployeeRequest;
 
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -22,8 +22,8 @@ import lombok.Setter;
 @Setter
 @NoArgsConstructor
 @Entity
-@Table(name = "student")
-public class Student {
+@Table(name = "employee")
+public class Employee {
 
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -39,15 +39,15 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 	
-	@OneToMany(mappedBy = "student")
+	@OneToMany(mappedBy = "employee")
 	private List<Address> addresses;
 	
-//	@OneToMany(mappedBy = "student") // todo remove
+//	@OneToMany(mappedBy = "employee") // todo remove
 //	private List<Subject> learningSubjects;
 	
-	public Student (CreateStudentRequest createStudentRequest) {
-		this.firstName = createStudentRequest.getFirstName();
-		this.lastName = createStudentRequest.getLastName();
-		this.email = createStudentRequest.getEmail();
+	public Employee (CreateEmployeeRequest createEmployeeRequest) {
+		this.firstName = createEmployeeRequest.getFirstName();
+		this.lastName = createEmployeeRequest.getLastName();
+		this.email = createEmployeeRequest.getEmail();
 	}
 }

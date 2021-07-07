@@ -7,7 +7,7 @@ import lombok.Setter;
 
 @Setter
 @Getter
-public class CreateStudentRequest {
+public class CreateEmployeeRequest {
 
 	private String firstName;
 
