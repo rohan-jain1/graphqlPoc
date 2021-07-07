@@ -15,21 +15,14 @@ type StudentResponse {
 	firstName : String
 	lastName : String
 	email : String
-	street : String
-	city : String
-	learningSubjects(subjectNameFilter : SubjectNameFilter) : [SubjectResponse]
+	addresses : [AddressResponse]
 	fullName : String
 }
 
-type SubjectResponse {
+
+type AddressResponse {
 	id : Long
-	subjectName : String
-	marksObtained : Float
+	city: String
+	street: String
 }
 
-enum SubjectNameFilter {
-	All,
-	Java,
-	MySQL,
-	MongoDB
-}

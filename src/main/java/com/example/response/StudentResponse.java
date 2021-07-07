@@ -2,6 +2,7 @@ package com.example.response;
 
 import java.util.List;
 
+import com.example.entity.Address;
 import com.example.entity.Student;
 
 import lombok.Getter;
@@ -16,14 +17,12 @@ public class StudentResponse {
 	private String firstName;
 
 	private String lastName;
-
-	private String email;
 	
-	private String street;
-
-	private String city;
+	private String email; 
 	
-	private List<SubjectResponse> learningSubjects;
+	private List<AddressResponse> addresses;
+
+//	private List<SubjectResponse> learningSubjects; //todo remove
 	
 	// this is for internal use. DO NOT PUT IN SCHEMA
 	private Student student;
@@ -36,10 +35,7 @@ public class StudentResponse {
 		this.firstName = student.getFirstName();
 		this.lastName = student.getLastName();
 		this.email = student.getEmail();
-		
-		this.street = student.getAddress().getStreet();
-		this.city = student.getAddress().getCity();
-		
+				
 		/*if (student.getLearningSubjects() != null) {
 			learningSubjects = new ArrayList<SubjectResponse>();
 			for (Subject subject: student.getLearningSubjects()) {

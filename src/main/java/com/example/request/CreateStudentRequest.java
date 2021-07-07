@@ -18,7 +18,9 @@ public class CreateStudentRequest {
 	private String street;
 
 	private String city;
+	
+	private List<CreateAddressRequest> addresses;
 
-	private List<CreateSubjectRequest> subjectsLearning;
+//	private List<CreateSubjectRequest> subjectsLearning;
 
 }

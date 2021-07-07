@@ -8,12 +8,10 @@ import org.springframework.stereotype.Service;
 
 import com.example.entity.Address;
 import com.example.entity.Student;
-import com.example.entity.Subject;
 import com.example.repository.AddressRepository;
 import com.example.repository.StudentRepository;
-import com.example.repository.SubjectRepository;
+import com.example.request.CreateAddressRequest;
 import com.example.request.CreateStudentRequest;
-import com.example.request.CreateSubjectRequest;
 
 @Service
 public class StudentService {
@@ -21,8 +19,8 @@ public class StudentService {
 	@Autowired
 	AddressRepository addressRepository;
 	
-	@Autowired
-	SubjectRepository subjectRepository;
+//	@Autowired
+//	SubjectRepository subjectRepository; //todo remove
 	
 	@Autowired
 	StudentRepository studentRepository;
@@ -34,34 +32,51 @@ public class StudentService {
 	public Student createStudent (CreateStudentRequest createStudentRequest) {
 		Student student = new Student(createStudentRequest);
 		
-		Address address = new Address();
-		address.setStreet(createStudentRequest.getStreet());
-		address.setCity(createStudentRequest.getCity());
+//		Address address = new Address();
+//		address.setStreet(createStudentRequest.getStreet());
+//		address.setCity(createStudentRequest.getCity());
+//		
+//		address = addressRepository.save(address);
 		
-		address = addressRepository.save(address);
+//		student.setAddresses(address);
 		
-		student.setAddress(address);
 		student = studentRepository.save(student);
 		
-		List<Subject> subjectsList = new ArrayList<Subject>();
 		
-		if(createStudentRequest.getSubjectsLearning() != null) {
-			for (CreateSubjectRequest createSubjectRequest : 
-					createStudentRequest.getSubjectsLearning()) {
-				Subject subject = new Subject();
-				subject.setSubjectName(createSubjectRequest.getSubjectName());
-				subject.setMarksObtained(createSubjectRequest.getMarksObtained());
-				subject.setStudent(student);
+		List<Address> addressList = new ArrayList<Address>();
+		
+		if(createStudentRequest.getAddresses() != null) {
+			for(CreateAddressRequest addressReq : createStudentRequest.getAddresses()) {
+				Address address = new Address();
+				address.setCity(addressReq.getCity());
+				address.setStreet(addressReq.getStreet());
+				address.setStudent(student);
+				addressList.add(address);
 				
-				subjectsList.add(subject);
 			}
-			
-			subjectRepository.saveAll(subjectsList);
-			
 		}
+		addressRepository.saveAll(addressList);
+		student.setAddresses(addressList);
 		
-		student.setLearningSubjects(subjectsList);
-		
+//		List<Subject> subjectsList = new ArrayList<Subject>();
+//		
+//		if(createStudentRequest.getSubjectsLearning() != null) {
+//			for (CreateSubjectRequest createSubjectRequest : 
+//					createStudentRequest.getSubjectsLearning()) {
+//				Subject subject = new Subject();
+//				subject.setSubjectName(createSubjectRequest.getSubjectName());
+//				subject.setMarksObtained(createSubjectRequest.getMarksObtained());
+//				subject.setStudent(student);
+//				
+//				subjectsList.add(subject);
+//			}
+//			
+//			subjectRepository.saveAll(subjectsList);
+//			
+//		}
+//		
+//		student.setLearningSubjects(subjectsList);
+//		
 		return student;
 	}
 }

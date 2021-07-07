@@ -39,7 +39,7 @@
 
 --LOCK TABLES `address` WRITE;
 /*!40000 ALTER TABLE `address` DISABLE KEYS */;
-INSERT INTO `address` VALUES (1,'Happy Street','Delhi'),(2,'2nd Street','Mumbai'),(3,'3rd Street','Delhi'),(4,'any street','Mumbai');
+INSERT INTO address(student_id, street, city) VALUES (1,'Happy Street','Delhi'),(1,'happy Street2','Mumbai'),(2,'2nd Street','Mumbai'),(2,'2nd Street2','Mumbai'),(3,'3rd Street','Delhi'),(4,'any street','Mumbai'), (4,'any street2','Mumbai');
 /*!40000 ALTER TABLE `address` ENABLE KEYS */;
 --UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

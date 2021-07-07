@@ -6,12 +6,11 @@ input CreateStudentRequest {
 	firstName : String
 	lastName : String
 	email : String
-	street : String
-	city : String
-	subjectsLearning : [CreateSubjectRequest]
+	addresses : [CreateAddressRequest]
 }
 
-input CreateSubjectRequest {
-	subjectName : String
-	marksObtained : Float
+
+input CreateAddressRequest {
+	city: String
+	street: String
 }

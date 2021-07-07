@@ -38,7 +38,7 @@
 
 --LOCK TABLES `student` WRITE;
 /*!40000 ALTER TABLE `student` DISABLE KEYS */;
-INSERT INTO `student` VALUES (1,'John','Smith','john@gmail.com',1),(2,'Virat','Dave','virat@gmail.com',2),(3,'Steve','Martin','steve@gmail.com',3),(4,'Sachin','Kumar','sachin@gmail.com',4);
+INSERT INTO `student` VALUES (1,'John','Smith','john@gmail.com'),(2,'Virat','Dave','virat@gmail.com'),(3,'Steve','Martin','steve@gmail.com'),(4,'Sachin','Kumar','sachin@gmail.com');
 /*!40000 ALTER TABLE `student` ENABLE KEYS */;
 --UNLOCK TABLES;
 /*!40103 SET TIME_ZONE=@OLD_TIME_ZONE */;

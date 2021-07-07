@@ -29,4 +29,5 @@ public class Query implements GraphQLQueryResolver {
 	public StudentResponse getStudent (long id) {
 		return new StudentResponse(studentService.getStudentById(id));
 	}
+	
 }

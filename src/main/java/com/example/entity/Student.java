@@ -39,12 +39,11 @@ public class Student {
 	@Column(name = "email")
 	private String email;
 	
-	@OneToOne
-	@JoinColumn(name = "address_id")
-	private Address address;
-	
 	@OneToMany(mappedBy = "student")
-	private List<Subject> learningSubjects;
+	private List<Address> addresses;
+	
+//	@OneToMany(mappedBy = "student") // todo remove
+//	private List<Subject> learningSubjects;
 	
 	public Student (CreateStudentRequest createStudentRequest) {
 		this.firstName = createStudentRequest.getFirstName();
