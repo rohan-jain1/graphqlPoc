@@ -13,24 +13,7 @@ import com.example.response.EmployeeResponse;
 @Service
 public class EmployeeResponseResolver implements GraphQLResolver<EmployeeResponse> {
 
-//	public List<SubjectResponse> getLearningSubjects (EmployeeResponse studentResponse,
-//			SubjectNameFilter subjectNameFilter) {
-//		
-//		List<SubjectResponse> learningSubjects = new ArrayList<SubjectResponse>();
-//		
-//		if (studentResponse.getStudent().getLearningSubjects() != null) {
-//			for (Subject subject: studentResponse.getStudent().getLearningSubjects()) {
-//				if (subjectNameFilter.name().equalsIgnoreCase("ALL")) {
-//					learningSubjects.add(new SubjectResponse(subject));
-//				} else if (subjectNameFilter.name().equalsIgnoreCase(subject.getSubjectName())) {
-//					learningSubjects.add(new SubjectResponse(subject));
-//				}
-//			}
-//		}
-//		
-//		return learningSubjects;
-//		
-//	}
+
 	
 	public List<AddressResponse> getAddresses(EmployeeResponse employeeResponse) {
 		

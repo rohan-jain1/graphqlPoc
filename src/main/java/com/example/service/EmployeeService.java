@@ -29,6 +29,10 @@ public class EmployeeService {
 		return employeeRepository.findById(id).get();
 	}
 	
+	public List<Employee> getAllEmployees() {
+		return employeeRepository.findAll();
+	}
+	
 	public Employee createEmployee (CreateEmployeeRequest createEmployeeRequest) {
 		Employee employee = new Employee(createEmployeeRequest);
 		
@@ -50,26 +54,7 @@ public class EmployeeService {
 		}
 		addressRepository.saveAll(addressList);
 		employee.setAddresses(addressList);
-		
-//		List<Subject> subjectsList = new ArrayList<Subject>();
-//		
-//		if(createStudentRequest.getSubjectsLearning() != null) {
-//			for (CreateSubjectRequest createSubjectRequest : 
-//					createStudentRequest.getSubjectsLearning()) {
-//				Subject subject = new Subject();
-//				subject.setSubjectName(createSubjectRequest.getSubjectName());
-//				subject.setMarksObtained(createSubjectRequest.getMarksObtained());
-//				subject.setStudent(student);
-//				
-//				subjectsList.add(subject);
-//			}
-//			
-//			subjectRepository.saveAll(subjectsList);
-//			
-//		}
-//		
-//		student.setLearningSubjects(subjectsList);
-//		
+
 		return employee;
 	}
 }
